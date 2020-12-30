@@ -1,11 +1,13 @@
+import { Container, Avatar, Info } from './styles';
 
-function RecommendedCard(){
-
+export default function RecommendedCard({ recommend }) {
   return (
-    <div>
-
-    </div>
-  )
+    <Container>
+      <Avatar src={recommend.avatar}></Avatar>
+      <Info>
+        <a>{recommend.title}</a>
+        <span>{recommend.views}</span>
+      </Info>
+    </Container>
+  );
 }
-
-export default RecommendedCard;

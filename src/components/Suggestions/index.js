@@ -1,4 +1,15 @@
-import { Container, IconsContainer, Icon, BoxContainer, BoxHeader, ItemContainer, Item, DownloadImage, ArrowIcon } from './styles';
+import {
+  Container,
+  IconsContainer,
+  Icon,
+  BoxContainer,
+  BoxHeader,
+  ButtonContainer,
+  Item,
+  ItemContainer,
+  ArrowIcon,
+  DownloadImage,
+} from './styles';
 import User from '../User';
 import Button from '../Button';
 import RecommendedCard from '../RecommendedCard';
@@ -102,8 +113,58 @@ const people = [
   },
 ];
 
-function Suggestions() {
+const itens = [
+  {
+    title: 'Woah',
+    views: '12.7M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/dd58c8fc85e343de916d19eed732e7db.jpeg',
+  },
+  {
+    title: 'Dance Monkey',
+    views: '7.4M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/acfc564d3a2a442cb8eb02f31b982a1f.jpeg',
+  },
+  {
+    title: '#youhaveto',
+    views: '2.5B views',
+    avatar:
+      'https://p16-va-default.akamaized.net/obj/musically-maliva-obj/05d86ea37c51ea4df101f968dee1501d',
+  },
+  {
+    title: 'Can we Kiss Forever?',
+    views: '8.7M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/3c7b5e07880b4d3a912ea60b926ca57c.jpeg',
+  },
+  {
+    title: 'Woah',
+    views: '12.7M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/dd58c8fc85e343de916d19eed732e7db.jpeg',
+  },
+  {
+    title: 'Dance Monkey',
+    views: '7.4M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/acfc564d3a2a442cb8eb02f31b982a1f.jpeg',
+  },
+  {
+    title: '#youhaveto',
+    views: '2.5B views',
+    avatar:
+      'https://p16-va-default.akamaized.net/obj/musically-maliva-obj/05d86ea37c51ea4df101f968dee1501d',
+  },
+  {
+    title: 'Can we Kiss Forever?',
+    views: '8.7M views',
+    avatar:
+      'https://p77-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/3c7b5e07880b4d3a912ea60b926ca57c.jpeg',
+  },
+];
 
+function Suggestions() {
   return (
     <Container>
       <IconsContainer>
@@ -116,12 +177,16 @@ function Suggestions() {
           <span>Contas sugeridas</span>
         </BoxHeader>
         <ItemContainer>
-          {people.map((person, index) => {
+          {people.map((person, index) => (
             <Item>
-              <User user={person}></User>
-              <Button fontSize={14} outlined>Seguir</Button>
+              <User key={index} user={person}></User>
+              <ButtonContainer>
+                <Button fontSize={14} outlined>
+                  Seguir
+                </Button>
+              </ButtonContainer>
             </Item>
-          })}
+          ))}
         </ItemContainer>
       </BoxContainer>
       <BoxContainer>
@@ -129,19 +194,19 @@ function Suggestions() {
           <span>Descobrir</span>
         </BoxHeader>
         <ItemContainer>
-          {people.map((item, index) => {
+          {itens.map((item, index) => (
             <Item>
-              <RecommendedCard key={index} recommended={item}></RecommendedCard>
+              <RecommendedCard key={index} recommend={item}></RecommendedCard>
               <ArrowIcon></ArrowIcon>
             </Item>
-          })}
+          ))}
         </ItemContainer>
       </BoxContainer>
       <DownloadImage src='/images/appstore.png'></DownloadImage>
       <DownloadImage src='/images/playstore.png'></DownloadImage>
       <DownloadImage src='/images/amazon.png'></DownloadImage>
     </Container>
-  )
+  );
 }
 
 export default Suggestions;
